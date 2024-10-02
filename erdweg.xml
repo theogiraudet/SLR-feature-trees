@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="autolayoutconstraints" value="true"/>
+		<graphics key="legendposition" value="1380,231"/>
+		<graphics key="legendautolayout" value="false"/>
+		<graphics key="showconstraints" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="LanguageWorkbench">
+			<or abstract="true" mandatory="true" name="Notation">
+				<and name="Textual">
+					<feature name="Symbols"/>
+				</and>
+				<feature name="Graphical"/>
+				<feature name="Tabular"/>
+			</or>
+			<or abstract="true" mandatory="true" name="Semantics">
+				<or abstract="true" name="Translational">
+					<feature name="M2T"/>
+					<and name="M2M">
+						<feature name="Concrete syntax"/>
+					</and>
+				</or>
+				<feature name="Interpretative"/>
+			</or>
+			<and abstract="true" mandatory="true" name="Editor">
+				<or abstract="true" mandatory="true" name="Editing mode">
+					<feature name="Free-form"/>
+					<feature name="Projectional"/>
+				</or>
+				<or abstract="true" name="Syntactic services">
+					<feature name="Highlighting"/>
+					<feature name="Outline"/>
+					<feature name="Folding"/>
+					<feature name="Syntactic completion"/>
+					<feature name="Diff"/>
+					<feature name="Auto-formatting"/>
+				</or>
+				<or abstract="true" name="Semantic services">
+					<feature name="Reference resolution"/>
+					<feature name="Semantic completion"/>
+					<feature name="Refactoring"/>
+					<feature name="Error marking"/>
+					<feature name="Quick fixes"/>
+					<feature name="Origin tracking"/>
+					<feature name="Live translation"/>
+				</or>
+			</and>
+			<or abstract="true" name="Validation">
+				<feature name="Structural"/>
+				<or abstract="true" name="Semantic">
+					<feature name="Naming"/>
+					<feature name="Types"/>
+					<feature name="Programmatic"/>
+				</or>
+			</or>
+			<or abstract="true" name="Testing">
+				<feature name="DSL debugging"/>
+				<feature name="DSL testing"/>
+			</or>
+			<or abstract="true" name="Composability">
+				<feature name="Syntax/view"/>
+				<feature name="Compose validation"/>
+				<feature name="Compose semantics"/>
+				<feature name="Editor Services"/>
+			</or>
+		</and>
+	</struct>
+</featureModel>

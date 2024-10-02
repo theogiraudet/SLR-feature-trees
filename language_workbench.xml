@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="autolayoutconstraints" value="false"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showconstraints" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="LanguageWorkbench">
+			<and abstract="true" name="Meta-DSL">
+				<or abstract="true" mandatory="true" name="Notation">
+					<graphics key="collapsed" value="false"/>
+					<and name="Textual">
+						<feature name="Symbols"/>
+					</and>
+					<feature name="Graphical"/>
+					<feature name="Tabular"/>
+					<feature name="Block"/>
+					<feature name="Form"/>
+				</or>
+				<and abstract="true" name="Editing Approach">
+					<feature name="Projectional approach"/>
+				</and>
+			</and>
+			<or abstract="true" name="Testing">
+				<feature name="DSL debugging"/>
+				<feature name="DSL testing"/>
+				<feature name="DSL program debugging"/>
+			</or>
+			<feature abstract="true" name="Extension Mechanism"/>
+			<and abstract="true" name="Runtime environment">
+				<graphics key="collapsed" value="false"/>
+				<feature name="Eclipse"/>
+				<feature name="Web"/>
+			</and>
+			<and abstract="true" name="Type">
+				<feature name="Internal"/>
+				<feature name="External"/>
+				<feature name="Embed"/>
+			</and>
+			<and abstract="true" mandatory="true" name="Definition">
+				<or abstract="true" name="Validation">
+					<feature name="Structural"/>
+					<or abstract="true" name="Semantic">
+						<feature name="Naming"/>
+						<feature name="Types"/>
+						<feature name="Programmatic"/>
+					</or>
+				</or>
+				<and abstract="true" name="Composability">
+					<alt abstract="true" mandatory="true" name="Concern">
+						<feature name="Syntax/view"/>
+						<feature name="Compose validation"/>
+						<feature name="Compose semantics"/>
+						<feature name="Editor Services"/>
+					</alt>
+					<alt abstract="true" mandatory="true" name="Operator">
+						<feature name="Module/Lib import"/>
+						<feature name="Reuse"/>
+						<feature name="Extension"/>
+						<feature name="Unification"/>
+						<feature name="Extension Composition"/>
+						<feature name="Restriction"/>
+						<feature name="Inheritance"/>
+						<feature name="Embedding"/>
+					</alt>
+				</and>
+				<or abstract="true" mandatory="true" name="Semantics">
+					<or abstract="true" name="Translational">
+						<feature name="M2T"/>
+						<and name="M2M">
+							<feature name="Concrete syntax"/>
+						</and>
+					</or>
+					<feature name="Interpretative"/>
+				</or>
+				<and abstract="true" mandatory="true" name="Editor Definition">
+					<graphics key="collapsed" value="false"/>
+					<or abstract="true" mandatory="true" name="Editing mode">
+						<feature name="Free-form"/>
+						<feature name="Projectional"/>
+					</or>
+					<or abstract="true" name="Syntactic services">
+						<feature name="Highlighting"/>
+						<feature name="Outline"/>
+						<feature name="Folding"/>
+						<feature name="Syntactic completion"/>
+						<feature name="Diff"/>
+						<feature name="Auto-formatting"/>
+						<feature name="Scope"/>
+					</or>
+					<or abstract="true" name="Semantic services">
+						<feature name="Reference resolution"/>
+						<feature name="Semantic completion"/>
+						<feature name="Refactoring"/>
+						<feature name="Error marking"/>
+						<feature name="Quick fixes"/>
+						<feature name="Origin tracking"/>
+						<feature name="Live translation"/>
+					</or>
+					<feature abstract="true" name="Collaboration"/>
+				</and>
+			</and>
+		</and>
+	</struct>
+</featureModel>
