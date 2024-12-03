@@ -17,7 +17,7 @@
 				<graphics key="collapsed" value="false"/>
 				<and abstract="true" mandatory="true" name="Language definition">
 					<graphics key="collapsed" value="false"/>
-					<and abstract="true" mandatory="true" name="Abstract syntax definition">
+					<or abstract="true" mandatory="true" name="Abstract syntax definition">
 						<graphics key="collapsed" value="false"/>
 						<feature name="From examples">
 							<description>MetaBUP [84]</description>
@@ -28,10 +28,10 @@
 							<graphics key="collapsed" value="false"/>
 						</feature>
 						<feature name="Grammar">
-							<description>Ensō [41]; GANDALF [45]: LOGGIE [81]; MontiCore [92]</description>
+							<description>Ensō [41]; GANDALF [45]: LOGGIE [81]; MontiCore [92]; Lan.d.s [74]</description>
 						</feature>
-					</and>
-					<and abstract="true" mandatory="true" name="Concrete syntax definition">
+					</or>
+					<or abstract="true" mandatory="true" name="Concrete syntax definition">
 						<graphics key="collapsed" value="false"/>
 						<feature name="From examples 2">
 							<description>MetaBUP [84]</description>
@@ -40,61 +40,61 @@
 							<description>GEMOC Studio [58]: using Sirius; Modelverse [88]</description>
 						</feature>
 						<feature name="Grammar 2">
-							<description>Ensō [41]; GANDALF [45]: LOGGIE [81]; MontiCore [92]</description>
+							<description>Ensō [41]; GANDALF [45]: LOGGIE [81]; MontiCore [92]; DropsBox [34]; Lan.d.s [74]</description>
 						</feature>
 						<feature name="Drawing">
 							<description>MetaEdit+ [85]</description>
 						</feature>
-					</and>
-					<and abstract="true" name="Semantic definition">
+					</or>
+					<or abstract="true" name="Semantic definition">
 						<graphics key="collapsed" value="false"/>
-						<and abstract="true" name="Dynamic">
+						<or abstract="true" name="Dynamic">
 							<graphics key="collapsed" value="false"/>
-							<and abstract="true" name="Translational">
+							<or abstract="true" name="Translational">
 								<graphics key="collapsed" value="false"/>
 								<feature name="M2C/M2T">
-								<description>MPS [104,110]; Rascal [135]</description>
+								<description>MPS [104,110]; Rascal [135]; Blocklybench [15]; EMFText [36]: generate builder stubs</description>
 							</feature>
 							<feature name="M2M">
-								<description>Blocklybench [15]; GEMOC Studio [56]; MPS [95,104,110]; Neverlang [118]; Not really Spoofax [132]</description>
+								<description>Blocklybench [15]; GEMOC Studio [56]; MPS [95,104,110]; Neverlang [118]; Not really Spoofax [132]; ; EMFText [36]: generate builder stubs</description>
 							</feature>
-						</and>
+						</or>
 						<feature name="Operational">
-							<description>GEMOC Studio [47,56,58]; MontiCore [94] : Java, generate visitor</description>
+							<description>GEMOC Studio [47,56,58]; MontiCore [94] : Java, generate visitor; EMFText [36]: generate interpreter stubs</description>
 						</feature>
 						<feature name="API">
 							<description>CINCO [23]: API in Java or Xtend</description>
 						</feature>
-						<feature name="Grammar attribute">
-							<description>MontiCore [94]</description>
-						</feature>
-					</and>
+					</or>
 					<and abstract="true" name="Static">
 						<graphics key="collapsed" value="false"/>
 						<feature name="Type def">
-							<description>Freon [44]; MPS [109]; Forge [42]</description>
+							<description>Freon [44]; MPS [104]; Forge [42]</description>
 						</feature>
 						<feature name="Validation rule">
-							<description>Freon [44]</description>
+							<description>Alloy [9]; IntellEdit [72];  Melanee [83]; MPS [104]; Neverlang 2 [127]; Racket [134]; Freon [44]; DropsBox [34]</description>
+						</feature>
+						<feature name="Grammar attribute">
+							<description>MontiCore [94]; DropsBox [34]</description>
 						</feature>
 					</and>
-				</and>
+				</or>
 				<feature name="Coordinate language execution">
 					<description>GEMOC Studio [58,64]</description>
 				</feature>
-				<and abstract="true" name="Composition">
+				<or abstract="true" name="Composition">
 					<graphics key="collapsed" value="false"/>
 					<feature name="Module/Lib import">
 					<description>Lightning [80], MPS [101]; Neverlang [118]; Rascal [136]</description>
 				</feature>
 				<feature name="Reuse">
-					<description>iCoLa [70]; MontiCore [89]: by component; MPS [103]; Reuse [64]; iCoLa [70]</description>
+					<description>iCoLa [70]; MontiCore [89]: by component; MPS [96,103]; GEMOC Studio [64]; iCoLa [70]; MontiCore [89]; Blocklybench [15]; ; DropsBox [34]; Lan.d.s [74]: grammar</description>
 				</feature>
 				<feature name="Language extension">
-					<description>DjDSL [33]; MontiCore [89]; MPS [103,104]: type system, generator (with clash detection); Neverlang [118]</description>
+					<description>DjDSL [33]; MontiCore [89]; MPS [103,104]: type system, generator (with clash detection); Neverlang [118]; Racket [134]: syntax; Lan.d.s [74]: grammar</description>
 				</feature>
 				<feature name="Language unification">
-					<description>DjDSL [33]; Neverlang [118]</description>
+					<description>DjDSL [33]; Neverlang [118]; Ensō [40]</description>
 				</feature>
 				<feature name="Language extension composition">
 					<description>DjDSL [33]</description>
@@ -108,21 +108,23 @@
 				<feature name="Embedding">
 					<description>MontiCore [92,94]; MPS [104]</description>
 				</feature>
-			</and>
+			</or>
 			<and abstract="true" name="Testing definition">
 				<graphics key="collapsed" value="false"/>
-				<feature name="Debugger">
-					<description>GEMOC Studio [44,56,58]: DAP, abstract execution engine that can be concretize; MPS [98]</description>
-				</feature>
+				<and name="Debugger">
+					<description>GEMOC Studio [44,56,58]: DAP, abstract execution engine that can be concretize; MPS [98]; Neverlang [125]</description>
+					<feature name="Trace manager"/>
+				</and>
+				<feature name="Handle concurrency"/>
 			</and>
 		</and>
-		<and abstract="true" name="Editor definition">
+		<or abstract="true" name="Editor definition">
 			<graphics key="collapsed" value="false"/>
 			<feature name="Scope">
 				<description>Freon [44]; MPS [103]</description>
 			</feature>
 			<feature name="Custom GUI">
-				<description>Gentleman [67]: Add button</description>
+				<description>Gentleman [67]: Add button; MPS [110]: new menus/views</description>
 			</feature>
 			<feature name="Syntax style">
 				<description>MontiCore [94]; Neverlang [125]; Blocklybench [15]; Gentleman [67]: CSS</description>
@@ -133,18 +135,18 @@
 			<feature name="Error marking">
 				<description>MPS</description>
 			</feature>
-		</and>
+		</or>
 	</and>
-	<and abstract="true" name="Meta-DSL">
+	<and abstract="true" mandatory="true" name="Meta-DSL">
 		<graphics key="collapsed" value="false"/>
-		<and abstract="true" name="Editing approach">
+		<alt abstract="true" mandatory="true" name="Editing approach">
 			<graphics key="collapsed" value="false"/>
 			<feature name="Projectional">
 				<description>Cedalion [17]; Gentleman [67]; MPS [98,110]</description>
 			</feature>
-			<feature name="Parser"/>
-		</and>
-		<and abstract="true" name="Notation">
+			<feature name="Free-form"/>
+		</alt>
+		<or abstract="true" mandatory="true" name="Notation">
 			<graphics key="collapsed" value="false"/>
 			<feature name="Textual">
 				<description>[9]; Cedalion [17]; Freon [43]; GANDALF [45]; Helvetia [69]; iCoLa [70]; IntellEdit [72]; Lan.d.s [74]; Language Designer’s Workbench [76]; Lightning [80]; Alloy [80]; Neverlang [82]; MontiCore [89]; MPS [95,98,104,110]; Nerverlang [118,82]; NLDSL [127]; GEMOC Studio [56]</description>
@@ -158,8 +160,8 @@
 			<feature name="HTML tree">
 				<description>Gentleman [67]</description>
 			</feature>
-		</and>
-		<and abstract="true" name="Type">
+		</or>
+		<or abstract="true" mandatory="true" name="DSL Type">
 			<graphics key="collapsed" value="false"/>
 			<feature name="Internal">
 				<description>Forge [42]: Scala; Helvetia [69]: Pharo; iCoLa [70]: Haskell; Lightning [80]: Alloy; unnamed [113]</description>
@@ -167,9 +169,9 @@
 			<feature name="External">
 				<description>Lan.d.s [74]</description>
 			</feature>
-		</and>
+		</or>
 	</and>
-	<and abstract="true" name="Collaboration">
+	<or abstract="true" name="Collaboration">
 		<graphics key="collapsed" value="false"/>
 		<and name="Live collaboration">
 			<description>MetaEdit+ [85]</description>
@@ -184,30 +186,27 @@
 		<feature name="Asynchronous collaboration">
 			<description>Versioning (deployment, commit, checkout) [82]</description>
 		</feature>
-	</and>
-	<and abstract="true" name="Extension mechanism">
+	</or>
+	<feature abstract="true" name="Extension mechanism">
+		<description>Alchemy [5]; CINCO [23]; EMFText [36]</description>
 		<graphics key="collapsed" value="false"/>
-		<feature name="Library">
-			<description>CINCO [23]</description>
-		</feature>
-		<feature name="API 2">
-			<description>Alchemy [5]</description>
-		</feature>
-	</and>
-	<and abstract="true" mandatory="true" name="Running environment">
+	</feature>
+	<or abstract="true" mandatory="true" name="Running environment">
 		<graphics key="collapsed" value="false"/>
-		<feature name="Eclipse">
+		<feature name="Eclipse Plugin">
 			<description>GEMOC Studio [56,58,64]; CINCO [23]; Cedalion [17]; Language Designer’s Workbench [76]; Lightning [80]; LOGGIE [81]; Melanee [82]; metaBUP [84]; unnamed [113]</description>
 		</feature>
+		<feature name="LSP"/>
+		<feature name="Standalone"/>
 		<feature name="Web">
 			<description>Programming Environment for Visual block-based DSLs [18]; Freon [44]; Gentleman [67]; Language Wheel [79]</description>
 		</feature>
-	</and>
+	</or>
 	<and abstract="true" name="V&amp;V">
 		<graphics key="collapsed" value="false"/>
 		<feature name="Model test case generation">
 			<description>
-				Generation of finite abstract model instances to fine-tune constraints&#13;
+				Generation of finite abstract model instances to fine-tune constraints
 				Lightning [80]; Alloy [9]
 			</description>
 		</feature>
@@ -217,9 +216,12 @@
 		<feature name="Type checking">
 			<description>Alchemy [5]</description>
 		</feature>
+		<feature name="Grammar disambiguation">
+			<description>Lan.d.s [74]</description>
+		</feature>
 	</and>
 	<and abstract="true" name="Editor">
-		<feature name="Usable during construction">
+		<feature name="Live production">
 			<description>Blocklybench [15]; Lan.d.s [74]</description>
 			<graphics key="collapsed" value="false"/>
 		</feature>

@@ -15,10 +15,12 @@
 			<graphics key="collapsed" value="false"/>
 			<and abstract="true" name="Meta-DSL">
 				<description>Features concerning the met-DSL(s) present inside the language workbench.</description>
+				<graphics key="collapsed" value="false"/>
 				<or abstract="true" mandatory="true" name="Notation">
 					<description>The form of the concrete syntax.</description>
 					<graphics key="collapsed" value="false"/>
 					<and name="Textual">
+						<graphics key="collapsed" value="false"/>
 						<feature name="Symbols"/>
 					</and>
 					<feature name="Graphical"/>
@@ -30,6 +32,7 @@
 				</or>
 				<or abstract="true" mandatory="true" name="Editing Approach">
 					<description>How a language designer interacts with the meta-DSLs to edit the metamodels.</description>
+					<graphics key="collapsed" value="false"/>
 					<feature name="Projectional approach">
 						<description>
 							Approach where the model is "projected", i.e. completely computed from the abstract syntax, to the user.
@@ -47,6 +50,7 @@
 				</or>
 			</and>
 			<and abstract="true" name="Testing">
+				<graphics key="collapsed" value="false"/>
 				<feature name="DSL debugging"/>
 				<feature name="DSL testing"/>
 			</and>
@@ -57,9 +61,12 @@
 				<feature name="Web"/>
 			</and>
 			<and abstract="true" mandatory="true" name="Definition">
+				<graphics key="collapsed" value="false"/>
 				<or abstract="true" name="Validation">
+					<graphics key="collapsed" value="false"/>
 					<feature name="Structural"/>
 					<or abstract="true" name="Semantic">
+						<graphics key="collapsed" value="false"/>
 						<feature name="Naming"/>
 						<feature name="Types"/>
 						<feature name="Programmatic"/>
@@ -67,8 +74,10 @@
 				</or>
 				<and abstract="true" name="Composability">
 					<description>A language workbench provides composition features if it's enable the reuse of (part of) other languages to create a new language.</description>
+					<graphics key="collapsed" value="false"/>
 					<alt abstract="true" mandatory="true" name="Concern">
 						<description>The composition concern is which part(s) of a language or a modeling workbench can be reused to create another language or modeling workbench.</description>
+						<graphics key="collapsed" value="false"/>
 						<feature name="Syntax/view"/>
 						<feature name="Compose validation"/>
 						<feature name="Compose semantics"/>
@@ -76,6 +85,7 @@
 					</alt>
 					<alt abstract="true" mandatory="true" name="Operator">
 						<description>The composition operator is an operator taking one or several languages to compose a new language.</description>
+						<graphics key="collapsed" value="false"/>
 						<feature name="Module/Lib import"/>
 						<feature name="Reuse"/>
 						<feature name="Extension"/>
@@ -109,9 +119,12 @@
 					</feature>
 				</alt>
 				<or abstract="true" mandatory="true" name="Semantics">
+					<graphics key="collapsed" value="false"/>
 					<or abstract="true" name="Translational">
+						<graphics key="collapsed" value="false"/>
 						<feature name="M2T"/>
 						<and name="M2M">
+							<graphics key="collapsed" value="false"/>
 							<feature name="Concrete syntax"/>
 						</and>
 					</or>
@@ -120,10 +133,12 @@
 				<and abstract="true" mandatory="true" name="Editor Definition">
 					<graphics key="collapsed" value="false"/>
 					<or abstract="true" mandatory="true" name="Editing mode">
+						<graphics key="collapsed" value="false"/>
 						<feature name="Free-form"/>
 						<feature name="Projectional"/>
 					</or>
 					<or abstract="true" name="Syntactic services">
+						<graphics key="collapsed" value="false"/>
 						<feature name="Highlighting"/>
 						<feature name="Outline"/>
 						<feature name="Folding"/>
@@ -133,6 +148,7 @@
 						<feature name="Scope"/>
 					</or>
 					<or abstract="true" name="Semantic services">
+						<graphics key="collapsed" value="false"/>
 						<feature name="Reference resolution"/>
 						<feature name="Semantic completion"/>
 						<feature name="Refactoring"/>
@@ -146,6 +162,7 @@
 			</and>
 			<or abstract="true" name="Extension mechanism">
 				<description>How the language workbench can be extended with new features.</description>
+				<graphics key="collapsed" value="false"/>
 				<feature name="Library"/>
 				<feature name="API"/>
 			</or>
