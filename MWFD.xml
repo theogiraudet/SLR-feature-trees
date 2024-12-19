@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="autolayoutconstraints" value="false"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showconstraints" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="LanguageWorkbench">
+			<or abstract="true" mandatory="true" name="Notation">
+				<and name="Textual">
+					<feature name="Symbols"/>
+				</and>
+				<feature name="Graphical"/>
+				<feature name="Tabular"/>
+				<feature name="Tree"/>
+			</or>
+			<or abstract="true" mandatory="true" name="Semantics">
+				<or abstract="true" name="Translational">
+					<feature name="M2T"/>
+					<feature name="M2M"/>
+				</or>
+				<feature name="Interpretative"/>
+				<feature name="Executional"/>
+			</or>
+			<and abstract="true" mandatory="true" name="Editor">
+				<and abstract="true" mandatory="true" name="Editing mode">
+					<feature name="Free-form"/>
+					<feature name="Projectional"/>
+				</and>
+				<and abstract="true" name="Syntactic services">
+					<feature name="Highlighting"/>
+					<feature name="Outline"/>
+					<feature name="Folding"/>
+					<feature name="Syntactic completion"/>
+					<feature name="Diff"/>
+					<feature name="Auto-formatting"/>
+				</and>
+				<or abstract="true" name="Semantic services">
+					<feature name="Reference resolution"/>
+					<feature name="Semantic completion"/>
+					<feature name="Refactoring"/>
+					<feature name="Error marking"/>
+					<feature name="Quick fixes"/>
+					<feature name="Origin tracking"/>
+					<feature name="Live translation"/>
+				</or>
+				<and name="Views">
+					<feature name="Debugger"/>
+					<feature name="Call Hierarchy"/>
+					<feature name="Model Hierarchy"/>
+					<feature name="Model Browser"/>
+				</and>
+			</and>
+			<or abstract="true" name="Validation">
+				<and name="Structural">
+					<feature name="Differencing"/>
+				</and>
+				<or abstract="true" name="Semantic">
+					<feature name="Naming"/>
+					<feature name="Types"/>
+					<feature name="Programmatic"/>
+					<feature name="Traces"/>
+					<feature name="Semantic Diff"/>
+					<feature name="Data Flow Analysis"/>
+				</or>
+			</or>
+			<or abstract="true" name="Testing">
+				<feature name="DSL debugging"/>
+				<feature name="DSL testing"/>
+			</or>
+			<or abstract="true" name="Composability">
+				<feature name="Syntax/view"/>
+				<feature name="Compose validation"/>
+				<feature name="Compose semantics"/>
+				<feature name="Editor Services"/>
+			</or>
+			<and abstract="true" name="Running environment">
+				<feature name="Web-based"/>
+				<feature name="IDE Plugin"/>
+			</and>
+		</and>
+	</struct>
+</featureModel>
