@@ -11,7 +11,7 @@
 		<graphics key="layoutalgorithm" value="1"/>
 	</properties>
 	<struct>
-		<and abstract="true" mandatory="true" name="LanguageWorkbench">
+		<and abstract="true" mandatory="true" name="Modeling Workbench">
 			<or abstract="true" mandatory="true" name="Notation">
 				<and name="Textual">
 					<feature name="Symbols"/>
@@ -19,15 +19,16 @@
 				<feature name="Graphical"/>
 				<feature name="Tabular"/>
 				<feature name="Tree"/>
+				<feature name="Block"/>
+				<feature name="Form"/>
 			</or>
-			<or abstract="true" mandatory="true" name="Semantics">
+			<and abstract="true" mandatory="true" name="Semantics">
 				<or abstract="true" name="Translational">
 					<feature name="M2T"/>
 					<feature name="M2M"/>
 				</or>
 				<feature name="Interpretative"/>
-				<feature name="Executional"/>
-			</or>
+			</and>
 			<and abstract="true" mandatory="true" name="Editor">
 				<and abstract="true" mandatory="true" name="Editing mode">
 					<feature name="Free-form"/>
@@ -54,12 +55,12 @@
 					<feature name="Debugger"/>
 					<feature name="Call Hierarchy"/>
 					<feature name="Model Hierarchy"/>
-					<feature name="Model Browser"/>
 				</and>
 			</and>
 			<or abstract="true" name="Validation">
+				<description>Formal verification?</description>
 				<and name="Structural">
-					<feature name="Differencing"/>
+					<feature name="Syntactic check"/>
 				</and>
 				<or abstract="true" name="Semantic">
 					<feature name="Naming"/>
@@ -71,15 +72,10 @@
 				</or>
 			</or>
 			<or abstract="true" name="Testing">
-				<feature name="DSL debugging"/>
-				<feature name="DSL testing"/>
+				<feature name="Model debugging"/>
+				<feature name="Model testing"/>
 			</or>
-			<or abstract="true" name="Composability">
-				<feature name="Syntax/view"/>
-				<feature name="Compose validation"/>
-				<feature name="Compose semantics"/>
-				<feature name="Editor Services"/>
-			</or>
+			<feature name="Editor Services"/>
 			<and abstract="true" name="Running environment">
 				<feature name="Web-based"/>
 				<feature name="IDE Plugin"/>

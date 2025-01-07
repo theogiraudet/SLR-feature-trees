@@ -51,6 +51,7 @@
 				<and abstract="true" mandatory="true" name="Semantics">
 					<and abstract="true" name="Dynamic">
 						<or abstract="true" mandatory="true" name="Approach">
+							<graphics key="collapsed" value="false"/>
 							<or abstract="true" name="Translational">
 								<feature name="M2T"/>
 								<and name="M2M">
@@ -91,7 +92,7 @@
 						<feature name="Projectional"/>
 					</or>
 					<or abstract="true" name="Syntactic services">
-						<graphics key="collapsed" value="true"/>
+						<graphics key="collapsed" value="false"/>
 						<feature name="Highlighting"/>
 						<feature name="Outline"/>
 						<feature name="Folding"/>
@@ -100,7 +101,7 @@
 						<feature name="Auto-formatting"/>
 					</or>
 					<or abstract="true" name="Semantic services">
-						<graphics key="collapsed" value="true"/>
+						<graphics key="collapsed" value="false"/>
 						<feature name="Reference resolution"/>
 						<feature name="Semantic completion"/>
 						<feature name="Refactoring"/>
@@ -111,7 +112,7 @@
 					</or>
 					<feature name="Custom GUI"/>
 					<or abstract="true" name="Viewpoint management">
-						<graphics key="collapsed" value="true"/>
+						<graphics key="collapsed" value="false"/>
 						<feature name="Multi-views">
 							<description>Propose different viewpoints over a system</description>
 						</feature>
@@ -143,7 +144,7 @@
 				<feature name="Editor testing"/>
 			</or>
 			<and abstract="true" name="Composability">
-				<graphics key="collapsed" value="true"/>
+				<graphics key="collapsed" value="false"/>
 				<or abstract="true" mandatory="true" name="Feature">
 					<description>What may be composed</description>
 					<feature name="Syntax/view"/>
@@ -177,15 +178,15 @@
 						<description>Type of architecture for the collaboration.</description>
 						<feature name="Distributed">
 							<description>
-								The collaboration is decentralized so more resilient in case of fault.&#13;
+								The collaboration is decentralized so more resilient in case of fault.
 								Such system doesn't require a constant connection to a server.
 							</description>
 						</feature>
 						<feature name="Centralised">
 							<description>
-								A centralised system has a single point of truth concerning modifications by the different collaborators.&#13;
-								This is easier to apply conflict resolutions strategy but requires a server or equivalent.&#13;
-								It requires a constant connection to the server.&#13;
+								A centralised system has a single point of truth concerning modifications by the different collaborators.
+								This is easier to apply conflict resolutions strategy but requires a server or equivalent.
+								It requires a constant connection to the server.
 								Example: SVN.
 							</description>
 						</feature>
@@ -193,9 +194,9 @@
 				</and>
 				<feature name="Versioning">
 					<description>
-						Collaboration "in time".&#13;
-						If the language workbench provides a way to version the developed languages/modeling workbenches.&#13;
-						It allows the language designer to keep an history of the artifacts and to backtrack to specific version.&#13;
+						Collaboration "in time".
+						If the language workbench provides a way to version the developed languages/modeling workbenches.
+						It allows the language designer to keep an history of the artifacts and to backtrack to specific version.
 						It may also enable the version to be labeled and to choose when the modeling workbench and to only deployed stable versions.
 					</description>
 				</feature>
@@ -207,10 +208,10 @@
 					<feature name="Standalone"/>
 					<feature name="Cloud native">
 						<description>
-							A cloud-native application has a strong separation between the client and the server part.&#13;
-							The server part may be hosted anywhere as long as it is available for the client.&#13;
-							It may be updated without having to necessarily update something on the client device.&#13;
-							The client can take various form such as web frontend or VSCode plugin for instance.&#13;
+							A cloud-native application has a strong separation between the client and the server part.
+							The server part may be hosted anywhere as long as it is available for the client.
+							It may be updated without having to necessarily update something on the client device.
+							The client can take various form such as web frontend or VSCode plugin for instance.
 							This enable more freedom by choosing an adapted client according to the user.
 						</description>
 					</feature>
@@ -225,34 +226,34 @@
 					<description>How the modeling environment is produced.</description>
 					<feature name="Generation">
 						<description>
-							The language workbench generates artifacts that can be executed to launch the modeling workbench.&#13;
+							The language workbench generates artifacts that can be executed to launch the modeling workbench.
 							The artifacts can be hosted wherever the user want but they have to manually manage that.
 						</description>
 					</feature>
 					<feature name="Interpretation">
 						<description>
-							The modeling workbench is directly interpreted.&#13;
-							In this situation, most of the time the modeling workbench is directly interpreted by the platform of the language workbench.&#13;
-							The user doesn't have to manage where the modeling workbench runs.&#13;
+							The modeling workbench is directly interpreted.
+							In this situation, most of the time the modeling workbench is directly interpreted by the platform of the language workbench.
+							The user doesn't have to manage where the modeling workbench runs.
 							This may also simplify the update of the modeling workbench since in such approach, the platform is able to keep the link between the modeling workbench and its definition.
 						</description>
 					</feature>
 				</or>
 				<feature name="Continuous production">
 					<description>
-						Automatically and continually product the modeling workbench.&#13;
+						Automatically and continually product the modeling workbench.
 						Enable the language designer to see immediately the impact of a modification over the modeling workbench.
 					</description>
 				</feature>
 			</and>
 			<and abstract="true" name="Co-evolution">
 				<description>
-					Capability to evolve a language/modeling language with the users' models.&#13;
+					Capability to evolve a language/modeling language with the users' models.
 					A language workbench supporting such feature provide a smoother user experience by preventing data loss or unexpected behavior.
 				</description>
 				<feature name="Depreciation">
 					<description>
-						Capability to specify in a version if specific language or modeling workbench constructs will be removed in future versions.&#13;
+						Capability to specify in a version if specific language or modeling workbench constructs will be removed in future versions.
 						This is a low support of co-evolution.
 					</description>
 				</feature>
