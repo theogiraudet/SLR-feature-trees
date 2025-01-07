@@ -142,7 +142,7 @@
 		<alt abstract="true" mandatory="true" name="Editing approach">
 			<graphics key="collapsed" value="false"/>
 			<feature name="Projectional">
-				<description>Cedalion [17]; Gentleman [67]; MPS [98,110]</description>
+				<description>Cedalion [17]; Gentleman [67]; MPS [98,110,112]</description>
 			</feature>
 			<feature name="Free-form"/>
 		</alt>
@@ -163,9 +163,13 @@
 		</or>
 		<or abstract="true" mandatory="true" name="DSL Type">
 			<graphics key="collapsed" value="false"/>
-			<feature name="Internal">
+			<and abstract="true" name="Internal">
 				<description>Forge [42]: Scala; Helvetia [69]: Pharo; iCoLa [70]: Haskell; Lightning [80]: Alloy; unnamed [113]</description>
-			</feature>
+				<feature name="Fluent API"/>
+				<feature name="Shadow">
+					<description>TigerEye [168]</description>
+				</feature>
+			</and>
 			<feature name="External">
 				<description>Lan.d.s [74]</description>
 			</feature>
@@ -191,7 +195,7 @@
 		<description>Alchemy [5]; CINCO [23]; EMFText [36]</description>
 		<graphics key="collapsed" value="false"/>
 	</feature>
-	<or abstract="true" mandatory="true" name="Running environment">
+	<or abstract="true" mandatory="true" name="Architecture">
 		<graphics key="collapsed" value="false"/>
 		<feature name="Eclipse Plugin">
 			<description>GEMOC Studio [56,58,64]; CINCO [23]; Cedalion [17]; Language Designer’s Workbench [76]; Lightning [80]; LOGGIE [81]; Melanee [82]; metaBUP [84]; unnamed [113]</description>
