@@ -21,6 +21,15 @@
 				<feature name="Tree"/>
 				<feature name="Block"/>
 				<feature name="Form"/>
+				<or abstract="true" name="Notation Paradigm">
+					<and abstract="true" name="Internal">
+						<feature name="Fluent API"/>
+						<and name="Shadow Embedding">
+							<feature name="Specialization"/>
+						</and>
+					</and>
+					<feature name="External"/>
+				</or>
 			</or>
 			<and abstract="true" mandatory="true" name="Semantics">
 				<or abstract="true" name="Translational">
@@ -70,6 +79,7 @@
 					<feature name="Semantic Diff"/>
 					<feature name="Data Flow Analysis"/>
 				</or>
+				<feature name="Formal Verification"/>
 			</or>
 			<or abstract="true" name="Testing">
 				<feature name="Model debugging"/>
@@ -79,6 +89,26 @@
 			<and abstract="true" name="Running environment">
 				<feature name="Web-based"/>
 				<feature name="IDE Plugin"/>
+			</and>
+			<and abstract="true" name="Collaboration">
+				<and abstract="true" name="Live collaboration">
+					<and abstract="true" name="Strategy">
+						<feature name="Optimistic"/>
+						<feature name="Pessimistic"/>
+					</and>
+					<and abstract="true" name="System architecture">
+						<feature name="Distributed"/>
+						<feature name="Centralized"/>
+					</and>
+				</and>
+				<feature name="Versioning"/>
+			</and>
+			<and abstract="true" name="Architecture">
+				<and abstract="true" name="Platform">
+					<feature name="Standalone"/>
+					<feature name="Cloud native"/>
+				</and>
+				<feature name="Modular"/>
 			</and>
 		</and>
 	</struct>
