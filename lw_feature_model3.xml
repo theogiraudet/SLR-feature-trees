@@ -12,7 +12,7 @@
 	</properties>
 	<struct>
 		<and abstract="true" mandatory="true" name="Language Workbench">
-			<and abstract="true" mandatory="true" name="Language definition">
+			<and name="Language definition">
 				<and abstract="true" name="Pragmatics">
 					<description>Capability to describe how the language should be used.</description>
 					<graphics key="collapsed" value="false"/>
@@ -20,46 +20,61 @@
 						<description>Capability to describe good practices such as design pattern.</description>
 					</feature>
 				</and>
-				<and abstract="true" mandatory="true" name="Syntax Definition">
+				<and abstract="true" mandatory="true" name="Syntax">
 					<description>Features about the definition of the syntaxes of a DSL.</description>
 					<graphics key="collapsed" value="false"/>
-					<alt abstract="true" name="Abstract syntax">
-						<description>How the abstract syntax is specified by the language designer</description>
+					<and abstract="true" name="Abstract syntax">
+						<description>Features about the definition of the abstract syntax of a DSL.</description>
 						<graphics key="collapsed" value="false"/>
-						<feature name="AS from examples">
-							<description>
-								The language designer gives examples from which the abstract syntax definition artifact is infered.
-								Useful when the language designer is not a language expert.
-							</description>
-						</feature>
-						<feature name="AS from scratch">
-							<description>The abstract syntax definition is specified from scratch according to the paradigm.</description>
-						</feature>
-					</alt>
-					<alt abstract="true" mandatory="true" name="Concrete Syntax">
-						<description>How the concrete syntax is specified by the language designer</description>
-						<graphics key="collapsed" value="false"/>
-						<feature name="CS from examples">
-							<description>
-								The language designer gives examples from which the concrete syntax definition artifact is infered.
-								Useful when the language designer is not a language expert.
-							</description>
-						</feature>
-						<feature name="CS from scrach">
-							<description>The concrete syntax definition is specified from scratch according to the paradigm.</description>
-						</feature>
-					</alt>
-					<and abstract="true" mandatory="true" name="AS-CS Mapping">
-						<graphics key="collapsed" value="false"/>
-						<alt abstract="true" mandatory="true" name="Expressiveness">
-							<feature name="1 to 1"/>
-							<feature name="1 to [0-1]"/>
-							<feature name="1 to *"/>
-							<feature name="* to *"/>
+						<alt abstract="true" mandatory="true" name="AS Definition">
+							<description>How a language designer specifies the abstract syntax.</description>
+							<graphics key="collapsed" value="false"/>
+							<feature name="AS from examples">
+								<description>
+									The language designer gives examples from which the abstract syntax definition artifact is infered.
+									Useful when the language designer is not a language expert.
+								</description>
+							</feature>
+							<feature name="AS from scratch">
+								<description>The abstract syntax definition is specified from scratch according to the paradigm.</description>
+							</feature>
 						</alt>
-						<or abstract="true" mandatory="true" name="Mapping specification">
-							<feature name="Implicit"/>
-							<feature name="Explicit"/>
+						<and abstract="true" mandatory="true" name="AS Artefact">
+							<description>What is the paradigm of the abstract syntax definition artifact.</description>
+							<graphics key="collapsed" value="false"/>
+							<feature mandatory="true" name="AS model-based">
+								<description>The abstract syntax definition takes the form of a metamodel.</description>
+							</feature>
+						</and>
+					</and>
+					<and abstract="true" mandatory="true" name="Concrete Syntax def">
+						<description>Features about the definition of the concrete syntax of a DSL.</description>
+						<graphics key="collapsed" value="false"/>
+						<alt abstract="true" mandatory="true" name="CS Definition">
+							<description>How a language designer specifies the concrete syntax.</description>
+							<graphics key="collapsed" value="false"/>
+							<feature name="CS from examples">
+								<description>
+									The language designer gives examples from which the concrete syntax definition artifact is infered.
+									Useful when the language designer is not a language expert.
+								</description>
+							</feature>
+							<feature name="CS from scrach">
+								<description>The concrete syntax definition is specified from scratch according to the paradigm.</description>
+							</feature>
+						</alt>
+						<or abstract="true" mandatory="true" name="CS Artefact">
+							<description>What is the paradigm of the concrete syntax definition artifact.</description>
+							<graphics key="collapsed" value="false"/>
+							<feature name="Grammar-based">
+								<description>The concrete syntax definition takes the form of a grammar.</description>
+							</feature>
+							<feature name="Drawing-based">
+								<description>The concrete syntax definition takes the form of a assembled shapes.</description>
+							</feature>
+							<feature name="CS model-based">
+								<description>The concrete syntax definition takes the form of a metamodel.</description>
+							</feature>
 						</or>
 					</and>
 				</and>
@@ -120,20 +135,63 @@
 						<feature name="Programmatic def"/>
 					</or>
 				</and>
+				<and abstract="true" mandatory="true" name="AS-CS mapping">
+					<graphics key="collapsed" value="false"/>
+					<alt abstract="true" mandatory="true" name="Expressiveness">
+						<feature name="1 to 1"/>
+						<feature name="1 to 0, 1"/>
+						<feature name="1 to *"/>
+						<feature name="* to *"/>
+					</alt>
+					<or abstract="true" mandatory="true" name="Mapping specification">
+						<feature name="Implicit"/>
+						<feature name="Explicit"/>
+					</or>
+				</and>
 			</and>
-			<and abstract="true" name="Modeling workbench definition">
+			<and mandatory="true" name="Modeling workbench definition">
 				<description>Features specific to the development of the different aspects of a DSL and its modeling workbench.</description>
 				<graphics key="collapsed" value="false"/>
-				<or abstract="true" name="MW Syntactic services">
-					<feature name="MW Highlighting"/>
-					<feature name="MW folding"/>
-					<feature name="MW Syntactic completion"/>
-					<feature name="MW Auto-formatting"/>
-				</or>
-				<or abstract="true" name="MW Semantic services">
-					<feature name="MW Semantic completion"/>
-					<feature name="MW Quick fixes"/>
-				</or>
+				<and abstract="true" mandatory="true" name="Editor">
+					<graphics key="collapsed" value="false"/>
+					<or abstract="true" mandatory="true" name="Editing mode">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Free-form"/>
+						<feature name="Projectional"/>
+					</or>
+					<or abstract="true" name="Syntactic services">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Highlighting"/>
+						<feature name="Outline"/>
+						<feature name="Folding"/>
+						<feature name="Syntactic completion"/>
+						<feature name="Diff"/>
+						<feature name="Auto-formatting"/>
+					</or>
+					<or abstract="true" name="Semantic services">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Reference resolution"/>
+						<feature name="Semantic completion"/>
+						<feature name="Refactoring"/>
+						<feature name="Error marking"/>
+						<feature name="Quick fixes"/>
+						<feature name="Origin tracking"/>
+						<feature name="Live translation"/>
+					</or>
+					<feature name="Custom GUI"/>
+					<or abstract="true" name="Viewpoint management">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Multi-views">
+							<description>Propose different viewpoints over a system</description>
+						</feature>
+						<feature name="Blended modeling">
+							<description>
+								Propose different notations for a single model
+								https://ieeexplore.ieee.org/abstract/document/8904858
+							</description>
+						</feature>
+					</or>
+				</and>
 				<or abstract="true" name="Validation">
 					<graphics key="collapsed" value="false"/>
 					<feature name="Structural"/>
@@ -145,51 +203,6 @@
 					</or>
 					<feature name="Formal verification"/>
 					<feature name="Model test case generation"/>
-				</or>
-				<feature name="Custom GUI"/>
-			</and>
-			<and abstract="true" mandatory="true" name="Editor">
-				<graphics key="collapsed" value="false"/>
-				<or abstract="true" mandatory="true" name="Editing mode">
-					<graphics key="collapsed" value="false"/>
-					<feature name="Free-form"/>
-					<feature name="Projectional"/>
-				</or>
-				<or abstract="true" name="Syntactic services">
-					<graphics key="collapsed" value="false"/>
-					<feature name="Highlighting"/>
-					<feature name="Outline"/>
-					<feature name="Folding"/>
-					<feature name="Syntactic completion"/>
-					<feature name="Diff"/>
-					<feature name="Auto-formatting"/>
-				</or>
-				<or abstract="true" name="Semantic services">
-					<graphics key="collapsed" value="false"/>
-					<feature name="Reference resolution"/>
-					<feature name="Semantic completion"/>
-					<feature name="Refactoring"/>
-					<feature name="Error marking"/>
-					<feature name="Quick fixes"/>
-					<feature name="Origin tracking"/>
-					<feature name="Live translation"/>
-				</or>
-				<and abstract="true" name="MW testing">
-					<and mandatory="true" name="MW debugger">
-						<feature name="Omniscient debugger"/>
-					</and>
-				</and>
-				<or abstract="true" name="Viewpoint management">
-					<graphics key="collapsed" value="false"/>
-					<feature name="Multi-views">
-						<description>Propose different viewpoints over a system</description>
-					</feature>
-					<feature name="Blended modeling">
-						<description>
-							Propose different notations for a single model
-							https://ieeexplore.ieee.org/abstract/document/8904858
-						</description>
-					</feature>
 				</or>
 			</and>
 			<and abstract="true" mandatory="true" name="Meta-languages">
@@ -228,17 +241,6 @@
 				<or abstract="true" mandatory="true" name="Paradigm">
 					<feature name="Imperative"/>
 					<feature name="Declarative"/>
-				</or>
-				<or abstract="true" mandatory="true" name="Artefact">
-					<feature name="Model-based">
-						<description>The concrete syntax definition takes the form of a metamodel.</description>
-					</feature>
-					<feature name="Grammar-based">
-						<description>The concrete syntax definition takes the form of a grammar.</description>
-					</feature>
-					<feature name="Template-based">
-						<description>The concrete syntax definition takes the form of a assembled shapes.</description>
-					</feature>
 				</or>
 			</and>
 			<and abstract="true" name="Testing">
@@ -338,7 +340,7 @@
 			<and abstract="true" mandatory="true" name="Architecture">
 				<description>Features specific to the architecture of the language workbench.</description>
 				<graphics key="collapsed" value="false"/>
-				<or abstract="true" mandatory="true" name="Platform">
+				<alt abstract="true" mandatory="true" name="Platform">
 					<description>The kind of architecture</description>
 					<graphics key="collapsed" value="false"/>
 					<feature name="Desktop"/>
@@ -351,10 +353,10 @@
 							This enable more freedom by choosing an adapted client according to the user.
 						</description>
 					</feature>
-				</or>
+				</alt>
 				<feature name="Modular">
 					<description>
-						If developers may extend the language workbench by adding new features or overriding existing ones through libraries or others.
+						If developers may extend the language workbench by adding new features or overriding existing ones through libraries or others.&#13;
 						If developers may create their own libraries.
 					</description>
 				</feature>

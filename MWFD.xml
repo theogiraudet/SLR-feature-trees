@@ -75,14 +75,12 @@
 				<and name="Structural">
 					<feature name="Syntactic check"/>
 				</and>
-				<or abstract="true" name="Semantic">
+				<and abstract="true" name="Semantic">
 					<feature name="Naming"/>
 					<feature name="Types"/>
-					<feature name="Programmatic"/>
 					<feature name="Traces"/>
-					<feature name="Semantic Diff"/>
 					<feature name="Data Flow Analysis"/>
-				</or>
+				</and>
 				<feature name="Formal Verification"/>
 				<feature name="Model test case generation"/>
 			</or>
@@ -90,11 +88,6 @@
 				<feature name="Model debugging"/>
 				<feature name="Model testing"/>
 			</or>
-			<feature name="Editor Services"/>
-			<and abstract="true" name="Running environment">
-				<feature name="Web-based"/>
-				<feature name="IDE Plugin"/>
-			</and>
 			<and abstract="true" name="Collaboration">
 				<and abstract="true" name="Live collaboration">
 					<or abstract="true" name="Strategy">
