@@ -39,18 +39,18 @@
 				<feature name="Interpretative"/>
 			</and>
 			<and abstract="true" mandatory="true" name="Editor">
-				<and abstract="true" mandatory="true" name="Editing mode">
+				<or abstract="true" mandatory="true" name="Editing mode">
 					<feature name="Free-form"/>
 					<feature name="Projectional"/>
-				</and>
-				<and abstract="true" name="Syntactic services">
+				</or>
+				<or abstract="true" name="Syntactic services">
 					<feature name="Highlighting"/>
 					<feature name="Outline"/>
 					<feature name="Folding"/>
 					<feature name="Syntactic completion"/>
 					<feature name="Diff"/>
 					<feature name="Auto-formatting"/>
-				</and>
+				</or>
 				<or abstract="true" name="Semantic services">
 					<feature name="Reference resolution"/>
 					<feature name="Semantic completion"/>
@@ -65,6 +65,10 @@
 					<feature name="Call Hierarchy"/>
 					<feature name="Model Hierarchy"/>
 				</and>
+				<or abstract="true" name="Viewpoint management">
+					<feature name="Multi-views"/>
+					<feature name="Blended modeling"/>
+				</or>
 			</and>
 			<or abstract="true" name="Validation">
 				<description>Formal verification?</description>
@@ -80,6 +84,7 @@
 					<feature name="Data Flow Analysis"/>
 				</or>
 				<feature name="Formal Verification"/>
+				<feature name="Model test case generation"/>
 			</or>
 			<or abstract="true" name="Testing">
 				<feature name="Model debugging"/>
@@ -92,23 +97,26 @@
 			</and>
 			<and abstract="true" name="Collaboration">
 				<and abstract="true" name="Live collaboration">
-					<and abstract="true" name="Strategy">
+					<or abstract="true" name="Strategy">
 						<feature name="Optimistic"/>
 						<feature name="Pessimistic"/>
-					</and>
-					<and abstract="true" name="System architecture">
+					</or>
+					<or abstract="true" name="System architecture">
 						<feature name="Distributed"/>
 						<feature name="Centralized"/>
-					</and>
+					</or>
 				</and>
 				<feature name="Versioning"/>
 			</and>
 			<and abstract="true" name="Architecture">
-				<and abstract="true" name="Platform">
+				<alt abstract="true" name="Platform">
 					<feature name="Standalone"/>
 					<feature name="Cloud native"/>
-				</and>
+				</alt>
 				<feature name="Modular"/>
+			</and>
+			<and abstract="true" name="Pragmatics">
+				<feature mandatory="true" name="Define good practices"/>
 			</and>
 		</and>
 	</struct>
