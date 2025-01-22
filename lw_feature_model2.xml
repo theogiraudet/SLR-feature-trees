@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="autolayoutconstraints" value="false"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showconstraints" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="Language Workbench">
+			<and abstract="true" mandatory="true" name="Language definition">
+				<and abstract="true" name="Pragmatics">
+					<description>Capability to describe how the language should be used.</description>
+					<graphics key="collapsed" value="false"/>
+					<feature mandatory="true" name="Define good practices">
+						<description>Capability to describe good practices such as design pattern.</description>
+					</feature>
+				</and>
+				<and abstract="true" mandatory="true" name="Syntax Definition">
+					<description>Features about the definition of the syntaxes of a DSL.</description>
+					<graphics key="collapsed" value="false"/>
+					<alt abstract="true" name="Abstract syntax">
+						<description>How the abstract syntax is specified by the language designer</description>
+						<graphics key="collapsed" value="false"/>
+						<feature name="AS from examples">
+							<description>
+								The language designer gives examples from which the abstract syntax definition artifact is infered.
+								Useful when the language designer is not a language expert.
+							</description>
+						</feature>
+						<feature name="AS from scratch">
+							<description>The abstract syntax definition is specified from scratch according to the paradigm.</description>
+						</feature>
+					</alt>
+					<alt abstract="true" mandatory="true" name="Concrete Syntax">
+						<description>How the concrete syntax is specified by the language designer</description>
+						<graphics key="collapsed" value="false"/>
+						<feature name="CS from examples">
+							<description>
+								The language designer gives examples from which the concrete syntax definition artifact is infered.
+								Useful when the language designer is not a language expert.
+							</description>
+						</feature>
+						<feature name="CS from scrach">
+							<description>The concrete syntax definition is specified from scratch according to the paradigm.</description>
+						</feature>
+					</alt>
+					<and abstract="true" mandatory="true" name="AS-CS Mapping">
+						<graphics key="collapsed" value="false"/>
+						<alt abstract="true" mandatory="true" name="Expressiveness">
+							<feature name="1 to 1"/>
+							<feature name="1 to [0-1]"/>
+							<feature name="1 to *"/>
+							<feature name="* to *"/>
+						</alt>
+						<or abstract="true" mandatory="true" name="Mapping specification">
+							<feature name="Implicit"/>
+							<feature name="Explicit"/>
+						</or>
+					</and>
+				</and>
+				<and abstract="true" name="Semantics def">
+					<description>Features about the definition of the semantics of a DSL.</description>
+					<graphics key="collapsed" value="false"/>
+					<or abstract="true" mandatory="true" name="Sem Type">
+						<graphics key="collapsed" value="false"/>
+						<and abstract="true" name="Dynamic">
+							<description>Features about the definition of the dynamic semantics of a DSL.</description>
+							<graphics key="collapsed" value="false"/>
+							<or abstract="true" mandatory="true" name="Approach">
+								<description>How the defined DSL is "executed".</description>
+								<graphics key="collapsed" value="false"/>
+								<or abstract="true" name="Translational">
+									<description>Compiles a model into a program expressed in another language.</description>
+									<graphics key="collapsed" value="false"/>
+									<feature name="M2T">
+										<description>Transform a program to a text in another language.</description>
+									</feature>
+									<and name="M2M">
+										<description>Transform a program to a model in another language.</description>
+										<graphics key="collapsed" value="false"/>
+										<feature name="Concrete syntax">
+											<description>Those which are able to use a language's concrete syntax in specifying translations.</description>
+										</feature>
+									</and>
+								</or>
+								<feature name="Interpretative">
+									<description>Directly executes a model without prior translation.</description>
+								</feature>
+							</or>
+							<feature name="Model of communication">
+								<description>Capability to coordinate the behavior of several languages.</description>
+							</feature>
+							<feature name="Model of concurrency">
+								<description>Capability to execute a model in concurrency.</description>
+							</feature>
+						</and>
+						<or abstract="true" name="Static">
+							<description>Features about the definition of the static semantics of a DSL.</description>
+							<graphics key="collapsed" value="false"/>
+							<feature name="Type">
+								<description>Explicit type definition for a DSL.</description>
+							</feature>
+							<feature name="Well-formedness rules">
+								<description>
+									Static constraints.
+									Useful to tailor the expressivity of a language according to specific rules.
+								</description>
+							</feature>
+						</or>
+					</or>
+					<or abstract="true" mandatory="true" name="Sem Artefact">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Rules"/>
+						<feature name="Grammar attributes"/>
+						<feature name="Programmatic def"/>
+					</or>
+				</and>
+			</and>
+			<and abstract="true" name="Modeling workbench definition">
+				<description>Features specific to the development of the different aspects of a DSL and its modeling workbench.</description>
+				<graphics key="collapsed" value="false"/>
+				<or abstract="true" name="MW Syntactic services">
+					<feature name="MW highlighting"/>
+					<feature name="MW folding"/>
+					<feature name="MW syntactic completion"/>
+					<feature name="MW auto-formatting"/>
+				</or>
+				<or abstract="true" name="MW Semantic services">
+					<feature name="MW semantic completion"/>
+					<feature name="MW quick fixes"/>
+				</or>
+				<and abstract="true" name="MW testing">
+					<and mandatory="true" name="MW debugger">
+						<feature name="Omniscient debugger"/>
+					</and>
+				</and>
+				<feature name="Custom GUI"/>
+			</and>
+			<and abstract="true" mandatory="true" name="Editor">
+				<graphics key="collapsed" value="false"/>
+				<or abstract="true" mandatory="true" name="Editing mode">
+					<graphics key="collapsed" value="false"/>
+					<feature name="Free-form"/>
+					<feature name="Projectional"/>
+				</or>
+				<or abstract="true" name="Syntactic services">
+					<graphics key="collapsed" value="false"/>
+					<feature name="Highlighting"/>
+					<feature name="Outline"/>
+					<feature name="Folding"/>
+					<feature name="Syntactic completion"/>
+					<feature name="Diff"/>
+					<feature name="Auto-formatting"/>
+				</or>
+				<or abstract="true" name="Semantic services">
+					<graphics key="collapsed" value="false"/>
+					<feature name="Reference resolution"/>
+					<feature name="Semantic completion"/>
+					<feature name="Refactoring"/>
+					<feature name="Error marking"/>
+					<feature name="Quick fixes"/>
+					<feature name="Origin tracking"/>
+					<feature name="Live translation"/>
+				</or>
+				<or abstract="true" name="Viewpoint management">
+					<graphics key="collapsed" value="false"/>
+					<feature name="Multi-views">
+						<description>Propose different viewpoints over a system</description>
+					</feature>
+					<feature name="Blended modeling">
+						<description>
+							Propose different notations for a single model
+							https://ieeexplore.ieee.org/abstract/document/8904858
+						</description>
+					</feature>
+				</or>
+			</and>
+			<or abstract="true" name="Validation">
+				<graphics key="collapsed" value="false"/>
+				<feature name="Structural"/>
+				<or abstract="true" name="Semantic">
+					<graphics key="collapsed" value="false"/>
+					<feature name="Naming"/>
+					<feature name="Types"/>
+					<feature name="Programmatic"/>
+				</or>
+				<feature name="Formal verification"/>
+				<feature name="Model test case generation"/>
+			</or>
+			<and abstract="true" mandatory="true" name="Meta-languages">
+				<graphics key="collapsed" value="false"/>
+				<or abstract="true" mandatory="true" name="Notation">
+					<graphics key="collapsed" value="false"/>
+					<and name="Textual">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Symbols"/>
+					</and>
+					<feature name="Graphical"/>
+					<feature name="Tabular"/>
+					<feature name="Block"/>
+					<feature name="Form"/>
+				</or>
+				<or abstract="true" mandatory="true" name="Kind">
+					<description>Kind of DSL relatively to the host language</description>
+					<graphics key="collapsed" value="false"/>
+					<alt abstract="true" name="Internal">
+						<description>Language reusing construct of the host language</description>
+						<graphics key="collapsed" value="false"/>
+						<feature name="Fluent API"/>
+						<and name="Shadow embedding">
+							<description>
+								Language extending the syntax of the host language by adding its own constructs.
+								e.g.: JSX
+							</description>
+							<graphics key="collapsed" value="false"/>
+							<feature name="Specialization"/>
+						</and>
+					</alt>
+					<feature name="External">
+						<description>Language syntactically independent of the host language</description>
+					</feature>
+				</or>
+				<or abstract="true" mandatory="true" name="Paradigm">
+					<feature name="Imperative"/>
+					<feature name="Declarative"/>
+				</or>
+				<or abstract="true" mandatory="true" name="Artefact">
+					<feature name="Model-based">
+						<description>The concrete syntax definition takes the form of a metamodel.</description>
+					</feature>
+					<feature name="Grammar-based">
+						<description>The concrete syntax definition takes the form of a grammar.</description>
+					</feature>
+					<feature name="Template-based">
+						<description>The concrete syntax definition takes the form of a assembled shapes.</description>
+					</feature>
+				</or>
+			</and>
+			<and abstract="true" name="Testing">
+				<description>The capability to test the language/modeling workbench definition.</description>
+				<graphics key="collapsed" value="false"/>
+				<feature name="DSL debugging">
+					<description>Capability to debug aspects of a DSL such as semantics, syntaxes, etc.</description>
+				</feature>
+				<feature name="DSL testing">
+					<description>Capability to test aspects of a DSL such as concrete and abstract syntaxes, semantics, …</description>
+				</feature>
+				<feature name="Editor testing">
+					<description>
+						Enables the test of the editor itself.
+						May be by descripting several actions/key strokes that should be executed over an initial model and validate the final resulting model.
+					</description>
+				</feature>
+			</and>
+			<and abstract="true" name="Composability">
+				<graphics key="collapsed" value="false"/>
+				<or abstract="true" mandatory="true" name="Feature">
+					<description>What may be composed</description>
+					<graphics key="collapsed" value="false"/>
+					<feature name="Syntax/view"/>
+					<feature name="Compose validation"/>
+					<feature name="Compose semantics"/>
+					<feature name="Editor Services"/>
+				</or>
+				<and abstract="true" mandatory="true" name="Operator">
+					<description>How to compose</description>
+					<graphics key="collapsed" value="false"/>
+					<feature name="Extension"/>
+					<feature name="Unification"/>
+					<feature name="Extension composition"/>
+					<feature name="Restriction"/>
+					<feature name="Self extension"/>
+				</and>
+				<feature name="Language component repository"/>
+			</and>
+			<and abstract="true" name="Collaboration">
+				<description>Specific features for the collaboration between users.</description>
+				<graphics key="collapsed" value="false"/>
+				<and abstract="true" name="Live collaboration">
+					<description>Collaboration "in space".</description>
+					<graphics key="collapsed" value="false"/>
+					<or abstract="true" mandatory="true" name="Strategy">
+						<description>The live collaboration strategy how the language workbench manages the edition of a single model elements or dependant elements by several users at the same time.</description>
+						<graphics key="collapsed" value="false"/>
+						<feature name="Optimistic">
+							<description>
+								An optimistic collaboration allows multiple users to interact on same model elements.
+								To avoid conflicts, they employ specific merge policies.
+								This is more transparent for the users but may lead to unexpected behaviors if bad strategies.
+							</description>
+						</feature>
+						<feature name="Pessimistic">
+							<description>
+								Pessimistic collaboration doesn't allow edition of a model element by different users.
+								Such strategy proposes a system to lock model elements, or even to ask to remove the lock.
+								This is less transparent for the user, but it avoid conflicts.
+							</description>
+						</feature>
+					</or>
+					<or abstract="true" mandatory="true" name="Collaboration architecture">
+						<description>Type of architecture for the collaboration.</description>
+						<graphics key="collapsed" value="false"/>
+						<feature name="Distributed">
+							<description>
+								The collaboration is decentralized so more resilient in case of fault.
+								Such system doesn't require a constant connection to a server.
+								Example: Git.
+							</description>
+						</feature>
+						<feature name="Centralised">
+							<description>
+								A centralised system has a single point of truth concerning modifications by the different collaborators.
+								This is easier to apply conflict resolutions strategy but requires a server or equivalent.
+								It requires a constant connection to the server.
+								Example: SVN.
+							</description>
+						</feature>
+					</or>
+				</and>
+				<feature name="Versioning">
+					<description>
+						Collaboration "in time".
+						If the language workbench provides a way to version the developed languages/modeling workbenches.
+						It allows the language designer to keep an history of the artifacts and to backtrack to specific version.
+						It may also enable the version to be labeled and to choose when the modeling workbench and to only deployed stable versions.
+					</description>
+				</feature>
+			</and>
+			<and abstract="true" mandatory="true" name="Architecture">
+				<description>Features specific to the architecture of the language workbench.</description>
+				<graphics key="collapsed" value="false"/>
+				<or abstract="true" mandatory="true" name="Platform">
+					<description>The kind of architecture</description>
+					<graphics key="collapsed" value="false"/>
+					<feature name="Desktop"/>
+					<feature name="Cloud native">
+						<description>
+							A cloud-native application has a strong separation between the client and the server part.
+							The server part may be hosted anywhere as long as it is available for the client.
+							It may be updated without having to necessarily update something on the client device.
+							The client can take various form such as web frontend or VSCode plugin for instance.
+							This enable more freedom by choosing an adapted client according to the user.
+						</description>
+					</feature>
+				</or>
+				<feature name="Modular">
+					<description>
+						If developers may extend the language workbench by adding new features or overriding existing ones through libraries or others.
+						If developers may create their own libraries.
+					</description>
+				</feature>
+			</and>
+			<and abstract="true" mandatory="true" name="MW production">
+				<description>Features about how the language workbench produces modeling workbenches.</description>
+				<graphics key="collapsed" value="false"/>
+				<or abstract="true" mandatory="true" name="Method">
+					<description>How the modeling environment is produced.</description>
+					<graphics key="collapsed" value="false"/>
+					<feature name="Generation">
+						<description>
+							The language workbench generates artifacts that can be executed to launch the modeling workbench.
+							The artifacts can be hosted wherever the user want but they have to manually manage that.
+						</description>
+					</feature>
+					<feature name="Interpretation">
+						<description>
+							The modeling workbench is directly interpreted.
+							In this situation, most of the time the modeling workbench is directly interpreted by the platform of the language workbench.
+							The user doesn't have to manage where the modeling workbench runs.
+							This may also simplify the update of the modeling workbench since in such approach, the platform is able to keep the link between the modeling workbench and its definition.
+						</description>
+					</feature>
+				</or>
+				<feature name="Continuous production">
+					<description>
+						Automatically and continually product the modeling workbench.
+						Enable the language designer to see immediately the impact of a modification over the modeling workbench.
+					</description>
+				</feature>
+			</and>
+			<and abstract="true" name="Co-evolution">
+				<description>
+					Capability to evolve a language/modeling language with the users' models.
+					A language workbench supporting such feature provide a smoother user experience by preventing data loss or unexpected behavior.
+				</description>
+				<graphics key="collapsed" value="false"/>
+				<feature name="Depreciation">
+					<description>
+						Capability to specify in a version if specific language or modeling workbench constructs will be removed in future versions.
+						This is a low support of co-evolution.
+					</description>
+				</feature>
+				<feature name="Automatic model migration">
+					<description>Capability to migrate automatically user's models to the new version.</description>
+				</feature>
+			</and>
+		</and>
+	</struct>
+</featureModel>
