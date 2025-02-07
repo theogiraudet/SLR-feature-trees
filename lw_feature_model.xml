@@ -267,19 +267,16 @@
 					<feature name="Compose semantics"/>
 					<feature name="Editor Services"/>
 				</or>
-				<or abstract="true" mandatory="true" name="Operator">
+				<and abstract="true" mandatory="true" name="Operator">
 					<description>How to compose</description>
 					<graphics key="collapsed" value="false"/>
-					<feature name="Reuse"/>
 					<feature name="Extension"/>
 					<feature name="Unification"/>
 					<feature name="Extension composition"/>
 					<feature name="Restriction"/>
 					<feature name="Inheritance"/>
-					<feature name="Embedding"/>
 					<feature name="Module/lib import"/>
-					<feature name="Modularization"/>
-				</or>
+				</and>
 				<feature name="Language component repository"/>
 			</and>
 			<and abstract="true" name="Collaboration">
