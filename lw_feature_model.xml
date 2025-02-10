@@ -102,7 +102,7 @@
 						<or abstract="true" name="Static">
 							<description>Features about the definition of the static semantics of a DSL.</description>
 							<graphics key="collapsed" value="false"/>
-							<feature name="Type">
+							<feature name="Type system">
 								<description>Explicit type definition for a DSL.</description>
 							</feature>
 							<feature name="Well-formedness rules">
@@ -153,6 +153,7 @@
 				<or abstract="true" mandatory="true" name="Editing mode">
 					<graphics key="collapsed" value="false"/>
 					<feature name="Free-form"/>
+					<feature name="Representation"/>
 					<feature name="Projectional"/>
 				</or>
 				<or abstract="true" name="Syntactic services">
@@ -205,7 +206,7 @@
 					<feature name="Block"/>
 					<feature name="Form"/>
 				</or>
-				<or abstract="true" mandatory="true" name="Kind">
+				<or abstract="true" mandatory="true" name="Type">
 					<description>Kind of DSL relatively to the host language</description>
 					<graphics key="collapsed" value="false"/>
 					<alt abstract="true" name="Internal">
@@ -267,7 +268,7 @@
 					<feature name="Compose semantics"/>
 					<feature name="Editor Services"/>
 				</or>
-				<and abstract="true" mandatory="true" name="Operator">
+				<or abstract="true" mandatory="true" name="Operator">
 					<description>How to compose</description>
 					<graphics key="collapsed" value="false"/>
 					<feature name="Extension"/>
@@ -276,7 +277,7 @@
 					<feature name="Restriction"/>
 					<feature name="Inheritance"/>
 					<feature name="Module/lib import"/>
-				</and>
+				</or>
 				<feature name="Language component repository"/>
 			</and>
 			<and abstract="true" name="Collaboration">
@@ -396,9 +397,11 @@
 						This is a low support of co-evolution.
 					</description>
 				</feature>
+				<feature name="Model migration customization"/>
 				<feature name="Automatic model migration">
 					<description>Capability to migrate automatically user's models to the new version.</description>
 				</feature>
+				<feature name="Version check"/>
 			</and>
 		</and>
 	</struct>

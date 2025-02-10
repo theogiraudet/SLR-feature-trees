@@ -82,7 +82,9 @@
 				<feature name="Test Model Generation"/>
 			</and>
 			<and abstract="true" name="Testing">
-				<feature name="Model debugging"/>
+				<and name="Model debugging">
+					<feature name="Omniscient debugging"/>
+				</and>
 				<feature name="Model testing"/>
 			</and>
 			<and abstract="true" name="Collaboration">
