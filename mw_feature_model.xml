@@ -41,6 +41,7 @@
 			<and abstract="true" mandatory="true" name="Editor">
 				<or abstract="true" mandatory="true" name="Editing mode">
 					<feature name="Free-form"/>
+					<feature name="Representation"/>
 					<feature name="Projectional"/>
 				</or>
 				<or abstract="true" name="Syntactic services">
@@ -93,7 +94,7 @@
 						<feature name="Optimistic"/>
 						<feature name="Pessimistic"/>
 					</or>
-					<or abstract="true" name="System architecture">
+					<or abstract="true" name="Collaboration architecture">
 						<feature name="Distributed"/>
 						<feature name="Centralized"/>
 					</or>
