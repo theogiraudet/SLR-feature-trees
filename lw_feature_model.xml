@@ -203,6 +203,7 @@
 					</and>
 					<feature name="Graphical"/>
 					<feature name="Tabular"/>
+					<feature name="Tree"/>
 					<feature name="Block"/>
 					<feature name="Form"/>
 				</or>
