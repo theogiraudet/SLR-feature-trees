@@ -62,7 +62,7 @@
 					<feature name="Origin tracking"/>
 					<feature name="Live translation"/>
 				</or>
-				<and name="Views">
+				<and abstract="true" name="Views">
 					<feature name="Debugger"/>
 					<feature name="Call Hierarchy"/>
 					<feature name="Model Hierarchy"/>
